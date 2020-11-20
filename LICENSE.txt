@@ -1,7 +1,9 @@
-The software and files provided in the bc_election_turnout repository are
-made available under the MIT License; a copy of which can be found at the
-following url:
+The election data used for this project is available under the "Elections
+BC Open Data License" which can be found in its entirety here
+https://elections.bc.ca/docs/EBC-Open-Data-Licence.pdf
 
+The software and files provided in the bc_election_turnout repository are
+made available under the MIT License; a copy of which can be found here
 https://choosealicense.com/licenses/mit/
 
 MIT License
