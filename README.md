@@ -36,4 +36,8 @@ We see that there is 0.27 correlation between `turnout` and `competitiveness`. W
 ## Reference
 1. https://www.nationalpopularvote.com/voter-turnout-substantially-higher-battleground-states-spectator-states
 
-testing
+## Code of Conduct
+  
+The bc_election_turnout project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). 
+By contributing to this project, you agree to abide by its terms.
+  
