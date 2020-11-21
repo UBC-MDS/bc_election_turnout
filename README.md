@@ -17,19 +17,19 @@ It will be a two-sided test. And we will decide if we can reject the null hypoth
 
 The exploratory data analysis (EDA) is completed and uploaded into the project repository. The summary of `provintial voting results` dataset is as follows:
 
-![](provintial_voting_results_EDA.JPG)
+![](EDA_fig/provintial_voting_results_EDA.JPG)
 
 and, the summary of `provincial voter participation` data set is placed in the following table.
 
-![](provincial_voter_participation_EDA.JPG)
+![](EDA_fig/provincial_voter_participation_EDA.JPG)
 
 Looking at the correlation between different variables in our wrangled data set, 
 
-![](Correlation_coefficient.JPG)
+![](EDA_fig/Correlation_coefficient.JPG)
 
 We see that there is 0.27 correlation between `turnout` and `competitiveness`. We also take a look at the turnout against competitiveness in a scattor plots with a trend line. 
 
- ![](scatter_plot.JPG)
+ ![](EDA_fig/scatter_plot.JPG)
 
  The analysis shows that competitiveness is positively correlated to the turnout rates, which is the same as what we expected. More analysis will be done to complete the project.
 
