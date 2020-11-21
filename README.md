@@ -17,7 +17,7 @@ It will be a two-sided test. And we will decide if we can reject the null hypoth
 
 The exploratory data analysis (EDA) is completed and uploaded into the project repository. The summary of `provintial voting results` dataset is as follows:
 
-![](provintial_voting_results_EDA.jpg)
+![](provintial_voting_results_EDA.JPG)
 
 and, the summary of `provincial voter participation` data set is placed in the following table.
 
