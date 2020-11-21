@@ -10,7 +10,7 @@ Options:
 --url_list=<url_list>...    Takes one or more space separated urls to a downloadable 
                             csv file. At least one url is required.
 
---path=<path>             Takes a path to where the data should be saved.
+--path=<path>               Takes a path to where the data should be saved.
                             This can be a relative or an absolute path, but it should
                             not include the file name. The downloaded files will be
                             named according to the basename of the url. If the path
