@@ -4,7 +4,7 @@
 "This script downloads data from one or more url links and saves it to a given file path.
 The file path can be an absolute path or a relative path, but it should not include the
 ending file name. The file name will come from the base name of the url link itself.
-Usage: download_data.R <url_list>... --path=<path>
+Usage: src/download_data.R <url_list>... --path=<path>
 
 Options:
 <url_list>...               Takes one or more space separated urls to a downloadable 
