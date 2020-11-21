@@ -7,7 +7,7 @@ ending file name. The file name will come from the base name of the url link its
 Usage: download_data.R <url_list>... --path=<path>
 
 Options:
---url_list=<url_list>...    Takes one or more space separated urls to a downloadable 
+<url_list>...               Takes one or more space separated urls to a downloadable 
                             csv file. At least one url is required.
 
 --path=<path>               Takes a path to where the data should be saved.
@@ -21,20 +21,47 @@ Options:
 library(tidyverse)
 library(here)
 library(docopt)
+library(httr)
+library(testthat)
 
 opt <- docopt(doc)
 
 main <- function(url_list, path){
-
+  
   # If the directory does not exist it will be created
   # If the directory does exist, a message will be output and the script will continue
   dir.create(here(path), recursive = TRUE)
   
   # Download data for each url in the list
   for (i in seq_along(url_list)){
-    download.file(url_list[[i]], here(path, basename(url_list[[i]])), quiet = TRUE)
+    status = GET(url_list[[i]])
+    
+    # Check if the url is valid and output an error if not
+    if(status$status_code != 200){
+      stop(paste("Error with the following url: ", url_list[[i]]))
+    }
+    
+    # Check if the url ends in .csv
+    if(!str_detect(url_list[[i]], "\\.csv$")){
+      stop(paste("Error. The following url does not end in .csv: ", url_list[[i]]))
+    }
+    
+    # Check if the file already exists on the system
+    if(file.exists(here(path, basename(url_list[[i]])))){
+      print(paste("File ", here(path, basename(url_list[[i]])), " already exists. Skipping download."))      
+    } else{
+      download.file(url_list[[i]], here(path, basename(url_list[[i]])), quiet = TRUE, mode = "wb")
+    }
   }
 }
 
 
 main(opt$url_list, opt$path)
+
+test_that("The script should throw an error when the url is not valid.", {
+  expect_error(main("bad_url/dfadfhag/garbage.com", ""))
+})
+
+test_that("The script should throw an error when the url does not end in .csv", {
+  expect_error(main("https://rstudio.com/", ""))
+})
