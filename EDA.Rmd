@@ -1,0 +1,73 @@
+---
+title: "BC Election Turnout: EDA Aanalysis"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+In this data analysis project, our research question is that if the closer election correlated with the higher turnout in BC. We have used two publicaly available data set [provincial_voter_participation_by_age_group](https://catalogue.data.gov.bc.ca/dataset/6d9db663-8c30-43ec-922b-d541d22e634f/resource/646530d4-078c-4815-8452-c75639962bb4/download/provincial_voter_participation_by_age_group.csv) and [provincial_voting_results](https://catalogue.data.gov.bc.ca/dataset/44914a35-de9a-4830-ac48-870001ef8935/resource/fb40239e-b718-4a79-b18f-7a62139d9792/download/provincial_voting_results.csv).
+
+## EDA analysis
+
+In the first step, we load the library need for our EDA analysis.
+
+### Loading the packages
+```{r load packages, echo=FALSE}
+
+library(tidyverse)
+library(here)
+library(janitor)
+```
+
+### Loading the data
+In the next step, we load our data set.
+```{r loading data sets}
+file_path1 <- here::here("data", "raw", "provincial_voting_results.csv")
+voting_resukts =read_csv(file_path1)
+file_path2 <- here::here("data", "raw", "participation_by_age_group.csv")
+participation = read_csv(file_path2)
+```
+lets look at the data set first to get more familiar with the data and its features. First, we'll take a look at the `voting_results` data set.
+
+```{r}
+str(voting_resukts)
+```
+The column names need to be processed. We then look at the head and tail of our data set.
+```{r}
+voting_resukts <-clean_names(voting_resukts)
+head(voting_resukts)
+```
+```{r}
+tail(voting_resukts)
+```
+
+After getting familiar with the voting results, we would take a look at the `participation data` set.
+
+```{r}
+str(participation)
+```
+The column name needs to be processed and then we can take a look at the first and last few rows of data.
+```{r}
+participation <-clean_names(participation)
+head(participation)
+```
+
+```{r}
+tail(participation)
+```
+## Data Wrangling
+
+We need to have access to the turnout for each ED to be able to answer our question.
+
+```{r}
+participation <- participation %>%
+    group_by(event_name, ed_name) %>%
+    summarise(participation = sum(participation), 
+              registered_voters = sum (registered_voters)) %>%
+    mutate(turnout = participation / registered_voters)
+participation
+```
