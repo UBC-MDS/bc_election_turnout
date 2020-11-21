@@ -34,34 +34,29 @@ main <- function(url_list, path){
   
   # Download data for each url in the list
   for (i in seq_along(url_list)){
-    status = GET(url_list[[i]])
-    
-    # Check if the url is valid and output an error if not
-    if(status$status_code != 200){
-      stop(paste("Error with the following url: ", url_list[[i]]))
-    }
     
     # Check if the url ends in .csv
     if(!str_detect(url_list[[i]], "\\.csv$")){
       stop(paste("Error. The following url does not end in .csv: ", url_list[[i]]))
     }
     
+    status = HEAD(url_list[[i]])
+    
+    # Check if the url resolves to a successful connection
+    if(status$status_code != 200){
+      stop(paste("Error with the following url: ", url_list[[i]]))
+    }
+   
+    
     # Check if the file already exists on the system
-    if(file.exists(here(path, basename(url_list[[i]])))){
-      print(paste("File ", here(path, basename(url_list[[i]])), " already exists. Skipping download."))      
+    filename <- here(path, basename(url_list[[i]]))
+    if(file.exists(filename)){
+      print(paste("File ", filename, " already exists. Skipping download."))      
     } else{
-      download.file(url_list[[i]], here(path, basename(url_list[[i]])), quiet = TRUE, mode = "wb")
+      download.file(url_list[[i]], filename, quiet = TRUE, mode = "wb")
     }
   }
 }
 
 
 main(opt$url_list, opt$path)
-
-test_that("The script should throw an error when the url is not valid.", {
-  expect_error(main("bad_url/dfadfhag/garbage.com", ""))
-})
-
-test_that("The script should throw an error when the url does not end in .csv", {
-  expect_error(main("https://rstudio.com/", ""))
-})
