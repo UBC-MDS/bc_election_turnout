@@ -29,7 +29,7 @@ Looking at the correlation between different variables in our wrangled data set,
 
 We see that there is 0.27 correlation between `turnout` and `competitiveness`. We also take a look at the turnout against competitiveness in a scattor plots with a trend line. 
 
- ![](Scatter_plot.JPG)
+ ![](scatter_plot.JPG)
 
  The analysis shows that competitiveness is positively correlated to the turnout rates, which is the same as what we expected. More analysis will be done to complete the project.
 
