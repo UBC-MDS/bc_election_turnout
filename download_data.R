@@ -1,13 +1,21 @@
 # author: Chad Neald
 # date: 2020-11-19
 
-"This script downloads data from two url links and saves it to a given file path.
-Usage: download_data.R --url1=<url1> --url2=<url2> --path=<path>
+"This script downloads data from one or more url links and saves it to a given file path.
+The file path can be an absolute path or a relative path, but it should not include the
+ending file name. The file name will come from the base name of the url link itself.
+Usage: download_data.R <url_list>... --path=<path>
 
 Options:
---url1=<url1>     Takes a url to a downloadable csv file (this is a required argument)
---url2=<url2>     Takes a secondary url to a downloadable csv file (this is a required argument)
---path=<path>     Takes a path to where the data should be saved (this is a required argument)
+--url_list=<url_list>...    Takes one or more space separated urls to a downloadable 
+                            csv file. At least one url is required.
+
+--path=<path>             Takes a path to where the data should be saved.
+                            This can be a relative or an absolute path, but it should
+                            not include the file name. The downloaded files will be
+                            named according to the basename of the url. If the path
+                            does not exist, it will be automatically created.
+                            This is a required argument.
 " -> doc
 
 library(tidyverse)
@@ -16,33 +24,17 @@ library(docopt)
 
 opt <- docopt(doc)
 
-main <- function(url1, url2, path){
-  
-  election_results <- read_csv(url1)
-  participation_data <- read_csv(url2)
-  
-  # If the directory do not exist it will be created
+main <- function(url_list, path){
+
+  # If the directory does not exist it will be created
   # If the directory does exist, a message will be output and the script will continue
-  dir.create(path, recursive = TRUE)
+  dir.create(here(path), recursive = TRUE)
   
-  # Append the actual name of the .csv to each path
-  file_name1 = "bc_provincial_election_results.csv"
-  file_name2 = "bc_election_participation_data.csv"
-  
-  # Check whether the user entered a path that ended in '/' or not
-  # Create the paths to the final files accordingly
-  if(str_sub(path, str_length(path)) == '/'){
-    path1 <- paste(path, file_name1, sep = "")
-    path2 <- paste(path, file_name2, sep = "")
-  } else{
-    path1 <- paste(path, file_name1, sep = "/")
-    path2 <- paste(path, file_name2, sep = "/")
+  # Download data for each url in the list
+  for (i in seq_along(url_list)){
+    download.file(url_list[[i]], here(path, basename(url_list[[i]])), quiet = TRUE)
   }
-  
-  write_csv(election_results, path1)
-  write_csv(participation_data, path2)
- 
 }
 
 
-main(opt$url1, opt$url2, opt$path)
+main(opt$url_list, opt$path)
