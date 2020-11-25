@@ -1,15 +1,15 @@
 "This script read the CSV data from a given path and process it.
 At the end, it write the processed csv data to the given path.
 
-Usage: src/load_process.R --pvr=<pvr> --pvp=<pvp> --out_path=<path>
+Usage: src/load_process.R --pvr_input=<pvr> --pvp_input=<pvp> --out_dir=<path>
 
 Options:
---pvr=<pvr>                 The file path of provintial_voting_results.csv
+--pvr_input=<pvr>                 The file path of provintial_voting_results.csv
 
---pvp=<pvp>                 The file path of provincial_voter_participation_by_age_group.csv
+--pvp_input=<pvp>                 The file path of provincial_voter_participation_by_age_group.csv
 
---out_path=<path>            Path to where the processed data should be saved.
-                            This can be a relative or an absolute path.
+--out_dir=<path>                  Path to where the processed data should be saved.
+                                  This can be a relative or an absolute path.
 " -> doc
 
 library(tidyverse)
@@ -20,7 +20,7 @@ library(testthat)
 
 opt <- docopt(doc)
 
-main <- function(pvr, pvp, out_path){
+main <- function(pvr, pvp, out_dir){
 
   
 
@@ -74,22 +74,11 @@ main <- function(pvr, pvp, out_path){
 
 
   # saving a processed csv data in a given path
-  dir.create(here(out_path), recursive = TRUE)
-  file = paste0(out_path, "/pvr_pvp__cleaned_joined.rds")
+  dir.create(here(out_dir), recursive = TRUE)
+  file = here::here(out_dir, "bc_election_by_district.rds")
   saveRDS(pvr_agg_process, file = file)
-  #pvr_file = paste0(out_path, "/pvr_processed.csv")
-  #pvp_file = paste0(out_path, "/pvp_processed.csv")
-  #write.csv(pvp_agg_process, pvp_file)
-  #write.csv(pvr_agg_process, pvr_file)
+
 } 
 
-
-#process_step <- function(pvr, pvp) {
-  
-
-#}
-
-
-main(opt$pvr, opt$pvp, opt$out_path)
+main(opt$pvr_input, opt$pvp_input, opt$out_dir)
 #main(opt[["--input"]], opt[["--out_dir"]])
-
