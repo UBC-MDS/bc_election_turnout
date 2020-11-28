@@ -28,7 +28,7 @@ this question, we have used two publicly available data sets from
 Elections BC which “Contains information licenced under the Elections BC
 Open Data Licence” available
 [here](https://www.elections.bc.ca/docs/EBC-Open-Data-Licence.pdf)
-(“ELECTIONS BC OPEN DATA LICENCE,” n.d.). The first data set is the
+(“Elections BC Open Data Licence,” n.d.). The first data set is the
 [provincial voter
 participation](https://catalogue.data.gov.bc.ca/dataset/6d9db663-8c30-43ec-922b-d541d22e634f/resource/646530d4-078c-4815-8452-c75639962bb4)
 (2018a) dataset and the second is the [provincial voting
@@ -55,7 +55,7 @@ statistically significant association between voter turnout and
 competitiveness for the examined elections in BC. The plot below
 captures the positive correlation.
 
-![](eda/bc_election_turnout_files/figure-html/scatterplot-1.png)
+![](doc/images/scatter_plot.png)
 
 ## Usage
 
@@ -84,8 +84,7 @@ bash bc_election_turnout.sh
 
 ## Report
 
-The final report can be found
-[here](https://github.com/UBC-MDS/bc_election_turnout/blob/main/doc/bc_election_turnout_report.html)
+The final report can be found [here](doc/bc_election_turnout_report.md)
 
 ## References
 
@@ -107,7 +106,7 @@ The final report can be found
 
 <div id="ref-BC_elections_license" class="csl-entry">
 
-“ELECTIONS BC OPEN DATA LICENCE.” n.d.
+“Elections BC Open Data Licence.” n.d.
 <https://www.elections.bc.ca/docs/EBC-Open-Data-Licence.pdf>.
 
 </div>

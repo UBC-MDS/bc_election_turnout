@@ -15,10 +15,11 @@ Rscript src/load_process.R \
 --out_dir=data/processed
 
 # Create the plots
-Rscript src/processed_data_to_plots.R --input=data/processed/bc_election_by_district.rds --out_dir=data/doc/images
+Rscript src/processed_data_to_plots.R --input=data/processed/bc_election_by_district.rds --out_dir=doc/images
 
 # Run the correlation test 
 Rscript src/run_test.R --input=data/processed/bc_election_by_district.rds --out_dir=data/processed
 
-# Generate the report
-Rscript -e "rmarkdown::render('doc/bc_election_turnout_report.Rmd')"
+# Generate the report and readme
+Rscript -e "rmarkdown::render('doc/bc_election_turnout_report.Rmd', output_format = 'all')"
+Rscript -e "rmarkdown::render('README.Rmd')"
