@@ -17,7 +17,7 @@ Rscript src/clean_data.R \
 # Create the plots
 Rscript src/make_figures.R --input=data/processed/bc_election_by_district.rds --out_dir=doc/images
 
-# Run the correlation test 
+# Run the correlation test
 Rscript src/perform_statistical_test.R --input=data/processed/bc_election_by_district.rds --out_dir=data/processed
 
 # Generate the report and readme

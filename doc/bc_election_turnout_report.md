@@ -93,7 +93,7 @@ is shown in Table 1.
 
 <div class="figure">
 
-<img src="C:/Users/Chad/Documents/mds/block3/dsci_522/milestone2/bc_election_turnout/eda/bc_election_turnout_files/figure-html/pvp.jpg" alt="Table 1. Summary of provincial voting participation dataset." width="100%" />
+<img src="../eda/bc_election_turnout_files/figure-html/pvp.jpg" alt="Table 1. Summary of provincial voting participation dataset." width="100%" />
 <p class="caption">
 Table 1. Summary of provincial voting participation dataset.
 </p>
@@ -108,7 +108,7 @@ summary of the dataset is shown in Table 2.
 
 <div class="figure">
 
-<img src="C:/Users/Chad/Documents/mds/block3/dsci_522/milestone2/bc_election_turnout/eda/bc_election_turnout_files/figure-html/pvr.jpg" alt="Table 2. Summary of provincial voting results dataset." width="100%" />
+<img src="../eda/bc_election_turnout_files/figure-html/pvr.jpg" alt="Table 2. Summary of provincial voting results dataset." width="100%" />
 <p class="caption">
 Table 2. Summary of provincial voting results dataset.
 </p>
@@ -143,7 +143,7 @@ well.
 
 <div class="figure">
 
-<img src="C:/Users/Chad/Documents/mds/block3/dsci_522/milestone2/bc_election_turnout/doc/images/scatter_plot.png" alt="Figure 1. A scatter plot displaying competitiveness vs turnout" width="100%" />
+<img src="images/scatter_plot.png" alt="Figure 1. A scatter plot displaying competitiveness vs turnout" width="100%" />
 <p class="caption">
 Figure 1. A scatter plot displaying competitiveness vs turnout
 </p>
@@ -152,7 +152,7 @@ Figure 1. A scatter plot displaying competitiveness vs turnout
 
 <div class="figure">
 
-<img src="C:/Users/Chad/Documents/mds/block3/dsci_522/milestone2/bc_election_turnout/doc/images/cow_plot.png" alt="Figure 2. Q-Q plot for competitiveness and turnout." width="100%" />
+<img src="images/cow_plot.png" alt="Figure 2. Q-Q plot for competitiveness and turnout." width="100%" />
 <p class="caption">
 Figure 2. Q-Q plot for competitiveness and turnout.
 </p>
