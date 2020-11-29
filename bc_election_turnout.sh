@@ -23,3 +23,6 @@ Rscript src/run_test.R --input=data/processed/bc_election_by_district.rds --out_
 # Generate the report and readme
 Rscript -e "rmarkdown::render('doc/bc_election_turnout_report.Rmd', output_format = 'all')"
 Rscript -e "rmarkdown::render('README.Rmd')"
+
+# Delete unnecessary intermediate .tex file
+rm 'doc/bc_election_turnout_report.tex'
