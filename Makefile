@@ -1,6 +1,6 @@
 
 # Bc election turnout analysis pipe
-# author: Kamal Moravej Jahromi, Chad Neald, Rafael Pilliard Hellwig, Yuan Xiong
+# author: Kamal Moravej, Chad Neald, Rafael Pilliard Hellwig, Yuan Xiong
 # date: 2020-12-01
 
 all : doc/images/cor_matrix.png doc/images/violin_plot.png doc/bc_election_turnout_report.md doc/bc_election_turnout_report.pdf doc/bc_election_turnout_report.html README.md
