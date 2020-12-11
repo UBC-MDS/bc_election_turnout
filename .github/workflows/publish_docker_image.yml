@@ -39,3 +39,4 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }} # you need to add your Docker username to this GitHub repo as a secret
         password: ${{ secrets.DOCKER_PASSWORD }} # you need to add your Docker password to this GitHub repo as a secret
         tags: "latest,${{ steps.bump.outputs.new_tag }}"
+        
